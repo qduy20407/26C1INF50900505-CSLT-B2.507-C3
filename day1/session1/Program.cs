@@ -8,8 +8,7 @@
         {
             Console.WriteLine("Hello, World!");
             Console.WriteLine("xinchao!");
-            Console.WriteLine("furry gaylord");
-            Console.WriteLine("furry gaylord");
+            Console.WriteLine("xinchao!");
         }
     } 
 }
