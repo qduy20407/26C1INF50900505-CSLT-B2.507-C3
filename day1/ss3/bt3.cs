@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace CSLT.session2
+namespace CSLT.ss3
 {
-    internal class FileName
+    internal class bt3
     {
     }
 }
