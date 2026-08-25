@@ -6,5 +6,7 @@ namespace CSLT.ss3
 {
     internal class bt3
     {
+        static void ex1() { 
+        }
     }
 }
