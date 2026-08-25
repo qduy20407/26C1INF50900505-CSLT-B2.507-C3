@@ -8,5 +8,6 @@ namespace CSLT.ss3
     {
         static void ex1() { 
         }
+        ssek
     }
 }
