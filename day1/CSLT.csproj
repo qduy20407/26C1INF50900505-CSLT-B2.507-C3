@@ -7,4 +7,10 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="session1\" />
+    <Folder Include="session2\" />
+    <Folder Include="ss3\" />
+  </ItemGroup>
+
 </Project>
