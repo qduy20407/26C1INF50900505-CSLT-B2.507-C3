@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using System.Globalization;
 
 internal class Program
 {
@@ -102,12 +103,99 @@ internal class Program
         }
         double cannangtoithieu = 18.5 * Math.Pow(chieuCao, 2);
         double cannangtoida = 22.9 * Math.Pow(chieuCao, 2);
-        Console.WriteLine("khuyên dùng: cân nặng tối thiểu từ {0:F2} kg đến {1:F2} kg", cannangtoithieu, cannangtoida);
+        Console.WriteLine("khuyên dùng: cân nặng lý tưởng từ {0:F2} kg đến {1:F2} kg", cannangtoithieu, cannangtoida);
+    }
+    enum CurrencyType
+    {
+        USD,
+        EUR,
+        JPY,
+        GBP
+    }
+    static void ex03()
+    {
+        Console.WriteLine("=== BAI TAP 3 ===");
+        Console.OutputEncoding = Encoding.UTF8;
+
+        Console.WriteLine("nhập số tiền VNĐ: ");
+        decimal vnd = decimal.Parse(Console.ReadLine());
+
+        Console.WriteLine("Chọn ngoại tệ (1: USD, 2: EUR, 3: JPY, 4: GBP): ");
+        int choice = int.Parse(Console.ReadLine());
+        CurrencyType currency = (CurrencyType)(choice - 1);
+        decimal phiDichVu = vnd * 0.005m;
+        decimal vndConLai = vnd - phiDichVu;
+        decimal tyGia = 0;
+        switch(currency)
+        {
+            case CurrencyType.USD:
+                tyGia = 25400m;
+                break;
+            case CurrencyType.EUR:
+                tyGia = 27200m;
+                break;
+            case CurrencyType.JPY:
+                tyGia = 165m;
+                break;
+            case CurrencyType.GBP:
+                tyGia = 32100m;
+                break;
+        
+        }
+        decimal ketQua = vndConLai / tyGia;
+        Console.WriteLine($"Phí dịch vụ (0.5%): {phiDichVu:N0} VNĐ");
+        Console.WriteLine($"Tiền VNĐ tính đổi:   {vndConLai:N0} VNĐ");
+        Console.WriteLine($"Số tiền nhận được:  {ketQua:N2} {currency}");
+    }
+    static void ex04()
+    {
+        Console.WriteLine("=== BAI TAP 4 ===");
+        Console.OutputEncoding = Encoding.UTF8;
+        Console.Write("Nhập ngày sinh (dd/MM/yyyy): ");
+        string input = Console.ReadLine();
+        DateTime birthDate;
+        bool isValid = DateTime.TryParseExact(input, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out birthDate);
+        if (!isValid)
+        {
+            Console.WriteLine("Ngày sinh không đúng định dạng dd/MM/yyyy");
+            return;
+        }
+        DateTime today = DateTime.Now.Date;
+        int age = today.Year - birthDate.Year;
+
+        if (today < birthDate.AddYears(age))
+        {
+            age--;
+        }
+        TimeSpan livedTime = today - birthDate;
+        int totalDaysLived = (int)livedTime.TotalDays;
+        DateTime nextBirthday = new DateTime(today.Year, birthDate.Month, birthDate.Day);
+
+        if (nextBirthday < today)
+        {
+            nextBirthday = nextBirthday.AddYears(1);
+        }
+
+        TimeSpan timeLeft = nextBirthday - today;
+        int daysUntilNextBirthday = (int)timeLeft.TotalDays;
+
+        Console.WriteLine($"Tuổi hiện tại: {age} tuổi");
+        Console.WriteLine($"Tổng số ngày đã sống: {totalDaysLived} ngày");
+        Console.WriteLine($"Số ngày còn lại đến sinh nhật kế tiếp: {daysUntilNextBirthday} ngày");
+    }
+    static void ex05()
+    {
+        Console.WriteLine("=== BAI TAP 5 ===");
+        Console.OutputEncoding = Encoding.UTF8;
+        Console.WriteLine("Nhập điểm số: ");
     }
 
     public static void Main(string[] args)
     {
         ex01();
         ex02();
+        ex03();
+        ex04();
+        ex05();
     }
 }
