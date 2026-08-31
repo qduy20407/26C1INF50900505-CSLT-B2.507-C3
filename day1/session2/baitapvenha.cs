@@ -4,6 +4,7 @@ internal class Program
 {
     static void ex01()
     {
+        Console.WriteLine("=== BAI TAP 1 ===");
         decimal chiSoCu = 0;
         decimal chiSoMoi = 0;
         Console.OutputEncoding = Encoding.UTF8;
@@ -61,8 +62,52 @@ internal class Program
         Console.WriteLine("Thuế VAT (8%): {0:#,##0} VNĐ", thueVAT);
         Console.WriteLine("TỔNG TIỀN THANH TOÁN: {0:#,##0} VNĐ", tongTien);
     }
+    static void ex02()
+    {
+        Console.WriteLine("=== BAI TAP 2 ===");
+        Console.OutputEncoding = Encoding.UTF8;
+        double chieuCao = 0;
+        double canNang = 0;
+        while (true)
+        {
+            Console.WriteLine("Nhập vào chiều cao (m): ");
+            bool isChieuCaoValid = double.TryParse(Console.ReadLine(), out chieuCao);
+
+            Console.WriteLine("Nhập vào cân nặng (kg): ");
+            bool isCanNangValid = double.TryParse(Console.ReadLine(), out canNang);
+            if (isChieuCaoValid && isCanNangValid && chieuCao > 0 && canNang > 0)
+            {
+                break;
+            }
+            Console.WriteLine("Lỗi");
+
+        }
+        double BMI = canNang / Math.Pow(chieuCao, 2);
+        Console.WriteLine("Chỉ số BMI của bạn: {0:F2}", BMI);
+        if (BMI < 18.5)
+        {
+            Console.WriteLine("phân loại sức khỏe: thiếu cân");
+        }
+        else if (BMI >= 18.5 && BMI < 23)
+        {
+            Console.WriteLine("phân loại sức khỏe: bình thường");
+        }
+        else if (BMI >= 23 && BMI < 25)
+        {
+            Console.WriteLine("phân loại sức khỏe: thừa cân");
+        }
+        else
+        {
+            Console.WriteLine("phân loại sức khỏe: béo phì");
+        }
+        double cannangtoithieu = 18.5 * Math.Pow(chieuCao, 2);
+        double cannangtoida = 22.9 * Math.Pow(chieuCao, 2);
+        Console.WriteLine("khuyên dùng: cân nặng tối thiểu từ {0:F2} kg đến {1:F2} kg", cannangtoithieu, cannangtoida);
+    }
+
     public static void Main(string[] args)
     {
         ex01();
+        ex02();
     }
 }
