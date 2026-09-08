@@ -1,7 +1,7 @@
 ﻿
     internal class baitaptrenlop
     {
-        static void ex01()
+        static void Ex01()
         {
             Console.Write("nhap so dau tien:  ");
             int sodau = int.Parse(Console.ReadLine());
@@ -19,7 +19,7 @@
         }
     public static void Main (string[] args)
     {
-        ex01();
+        Ex01();
     }
     }
    
