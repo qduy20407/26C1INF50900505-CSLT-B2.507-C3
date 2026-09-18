@@ -7,7 +7,7 @@ namespace CSLT.ss3
     internal class baitapvenha
     {
 
-        public static void Main(string[] args)
+        public static void Main333(string[] args)
         {
             ex01();
             ex02();
