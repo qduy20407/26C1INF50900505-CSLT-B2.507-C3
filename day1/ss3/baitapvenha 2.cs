@@ -7,7 +7,7 @@ namespace CSLT.ss3
 {
     internal class baitapvenha_2
     {
-        public static void Main(string[] args)
+        public static void Main222(string[] args)
         {
             dicegame();
             gamedoanso();
