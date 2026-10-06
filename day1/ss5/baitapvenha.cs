@@ -6,7 +6,7 @@ namespace CSLT.ss5
 {
     internal class baitapvenha
     {
-        public static void Main(string[] args)
+        public static void Main7777(string[] args)
         {
             ex01(args);
         }
